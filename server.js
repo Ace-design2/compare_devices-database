@@ -68,7 +68,7 @@ app.get("/devices", async (req, res) => {
     
     devicesRef = devicesRef.orderBy('id', 'asc');
     
-    let finalLimit = parseInt(limit, 10) || 50; // Default limit 50 to avoid massive reads
+    let finalLimit = parseInt(limit, 10) || 100000; // Increased default to load all devices as requested
     devicesRef = devicesRef.limit(finalLimit);
     
     let finalOffset = parseInt(offset, 10) || 0;
